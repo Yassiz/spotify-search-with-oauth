@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Spotify API Player</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="style.css" />
+	<script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="app.js"></script>
+</head>
+<body>
+
+<div class="container margin-top-20">
+	<div>
+		<a href="index.html" class="btn btn-info">
+			<span class="glyphicon glyphicon-menu-left"></span>
+			Back
+		</a>
+	</div>
+	<input type="hidden" id="page_id" value="saved" />
+	<div id="song-container">
+		<!--All saved songs-->
+		<script id="track-template" type="text/x-handlebars-template">
+			<div class="row margin-top-20 one-song" id="{{id}}">
+				<div class="col-sm-3">
+					<img src="{{image}}" class="img-responsive" />
+				</div>
+				<div class="col-sm-9">
+					<h2>{{name}}</h2>
+					<p>
+						By {{artist}}
+					</p>
+					<p>
+						Album: {{album_name}}
+					</p>
+					<div class="margin-top-20">
+						<audio controls>
+							<source src="{{preview_url}}" type="audio/mpeg">
+						</audio>
+					</div>
+					<div class="margin-top-20">
+						<button type="submit" id="remove_track" value="{{id}}" class="btn btn-danger btn-sm">
+							<span class="glyphicon glyphicon-remove margin-right-5"></span>
+								Remove Track
+						</button>
+					</div>
+				</div>
+			</div>
+		</script>
+		<!--/All saved songs-->
+	</div>
+</div>
+
+</body>
+</html>
